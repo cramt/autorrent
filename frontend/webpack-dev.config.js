@@ -2,6 +2,7 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const commonConfig = require('./webpack-common.config.js');
 const resolve = require("path").resolve
+const fs = require("fs")
 
 module.exports = merge(commonConfig, {
     mode: 'development',
@@ -9,7 +10,11 @@ module.exports = merge(commonConfig, {
         './src/index.tsx' // the entry point of our app
     ],
     output: {
-        path: resolve('./dist/'),
+        //path: resolve('./dist/'),
+        //path: "D:\\projects\\autorrent\\backend\\bin\\Debug\\dist",
+        path: (() => {
+            return fs.readFileSync("outputPath").toString()
+        })(),
         filename: 'bundle.js',
         publicPath: './'
     },

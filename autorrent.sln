@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "autorrent", "autorrent\autorrent.csproj", "{001D0CF4-3E55-429A-AA0D-9C176750AA52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "backend", "backend\backend.csproj", "{0737CCC4-81A8-480D-84C2-FAF2B154B6BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{001D0CF4-3E55-429A-AA0D-9C176750AA52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{001D0CF4-3E55-429A-AA0D-9C176750AA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{001D0CF4-3E55-429A-AA0D-9C176750AA52}.Debug|x64.ActiveCfg = Debug|x64
-		{001D0CF4-3E55-429A-AA0D-9C176750AA52}.Debug|x64.Build.0 = Debug|x64
-		{001D0CF4-3E55-429A-AA0D-9C176750AA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{001D0CF4-3E55-429A-AA0D-9C176750AA52}.Release|Any CPU.Build.0 = Release|Any CPU
-		{001D0CF4-3E55-429A-AA0D-9C176750AA52}.Release|x64.ActiveCfg = Release|x64
-		{001D0CF4-3E55-429A-AA0D-9C176750AA52}.Release|x64.Build.0 = Release|x64
+		{0737CCC4-81A8-480D-84C2-FAF2B154B6BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0737CCC4-81A8-480D-84C2-FAF2B154B6BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0737CCC4-81A8-480D-84C2-FAF2B154B6BF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0737CCC4-81A8-480D-84C2-FAF2B154B6BF}.Debug|x64.Build.0 = Debug|Any CPU
+		{0737CCC4-81A8-480D-84C2-FAF2B154B6BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0737CCC4-81A8-480D-84C2-FAF2B154B6BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0737CCC4-81A8-480D-84C2-FAF2B154B6BF}.Release|x64.ActiveCfg = Release|Any CPU
+		{0737CCC4-81A8-480D-84C2-FAF2B154B6BF}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
