@@ -10,11 +10,7 @@ module.exports = merge(commonConfig, {
         './src/index.tsx' // the entry point of our app
     ],
     output: {
-        //path: resolve('./dist/'),
-        //path: "D:\\projects\\autorrent\\backend\\bin\\Debug\\dist",
-        path: (() => {
-            return fs.readFileSync("outputPath").toString()
-        })(),
+        path: resolve('./dist/'),
         filename: 'bundle.js',
         publicPath: './'
     },
