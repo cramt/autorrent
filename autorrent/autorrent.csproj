@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Torrent\PieceCompletedEventArgs.cs" />
     <Compile Include="Torrent\TorrentClient.cs" />
     <Compile Include="Torrent\TorrentSession.cs" />
     <Compile Include="WebpackBindings.cs" />
