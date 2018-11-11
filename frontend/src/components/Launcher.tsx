@@ -5,8 +5,6 @@ interface ThisProps {
     callback: () => void
 }
 
-
-
 declare var CefSharp: CefSharpObject;
 declare var CsJsObject: CsJsBindings;
 

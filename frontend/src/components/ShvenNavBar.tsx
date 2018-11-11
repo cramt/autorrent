@@ -1,8 +1,5 @@
 import * as React from 'react'
 import './ShvenNavBar.css'
-import { RouteComponentProps } from 'react-router-dom';
-import { Statics } from '../statics';
-import { flattenArray } from '../utilities';
 
 //complete ripoff https://codepen.io/Shven/pen/chKqD
 
