@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace autorrent {
-    class CsJsBindings {
+    //in the js, all these functions are promises
+    public class CsJsBindings {
         public void log(object o) {
             switch (o) {
                 case ExpandoObject expando:
-                    dynamic d = (dynamic)expando;
-                    Console.WriteLine(d.a);
+                    
                     break;
                 default:
                     Console.WriteLine(o);
