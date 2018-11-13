@@ -25,6 +25,18 @@ export class Launcher extends React.Component<ThisProps, {}> {
         (async () => {
             await CefSharp.BindObjectAsync("CsJsObject")
             initCsJsBindingObject(CsJsObject);
+            //CsJsObject.log({ hello: "there" })
+            //CsJsObject.log(new test());
+            CsJsObject.log({
+                a: new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve();
+                    }, 2000);
+                })
+            })
         })()
     }
+}
+class test {
+
 }
