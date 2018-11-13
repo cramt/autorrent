@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { routes } from './routes';
-import { BrowserRouter, RouteComponentProps } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { Launcher } from './components/Launcher';
 
 
@@ -18,7 +18,7 @@ function render() {
         <Launcher callback={() => {
             ReactDOM.render(
                 <AppContainer>
-                    <BrowserRouter children={routes} />
+                    <MemoryRouter children={routes} />
                 </AppContainer>,
                 document.getElementById('app-container')
             )

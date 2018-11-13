@@ -9,14 +9,12 @@ namespace autorrent {
     //in the js, all these functions are promises
     public class CsJsBindings {
         public void log(object o) {
-            switch (o) {
-                case ExpandoObject expando:
-                    
-                    break;
-                default:
-                    Console.WriteLine(o);
-                    break;
+            try {
+                dynamic d = (dynamic)o;
+                Console.WriteLine("line: " + d.line);
+                Console.WriteLine(d.msg);
             }
+            catch (Exception) { }
         }
     }
 }

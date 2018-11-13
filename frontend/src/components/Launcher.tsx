@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { CefSharpObject, CsJsBindings, initCsJsBindingObject } from '../statics';
+import { CefSharpObject, CsJsBindings, initCsJsBindingObject } from '../CsJsBinding';
 
 interface ThisProps {
     callback: () => void
