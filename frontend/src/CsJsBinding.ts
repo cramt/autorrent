@@ -3,12 +3,16 @@ export interface CefSharpObject {
 }
 export interface CsJsBindings {
     log(a: any): void;
+    func: (f: () => void) => void;
 }
 let CsJsObj: CsJsBindings;
 export function initCsJsBindingObject(obj: CsJsBindings) {
     console.log("CsJsBindings object initialized")
     CsJsObj = obj
     CsJsObj.log("CsJsBindings object initialized")
+    CsJsObj.func(() => {
+        console.log("hell othere")
+    })
 }
 class CsJsClass {
     log(object: any) {

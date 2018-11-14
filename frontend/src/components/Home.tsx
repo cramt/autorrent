@@ -15,9 +15,7 @@ export class Home extends React.Component<RouteComponentProps<{}>, {}> {
             </div>
         )
     }
-    componentDidMount(){
-        CsJs.log(2321)
-        CsJs.log("hello there")
-        CsJs.log(<p>hello there</p>);
+    componentDidMount() {
+
     }
 }
