@@ -1,4 +1,6 @@
 using autorrent.Torrent;
+using CefSharp;
+using CefSharp.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +32,9 @@ namespace autorrent {
 
         const bool doTheWebpack = false;
         static void Main(string[] args) {
+            CefSettings settings = new CefSettings();
+            Cef.EnableHighDPISupport();
+            Cef.Initialize(settings);
             //Test();
             //Thread.Sleep(-1);
             ChromeForm mainForm = new ChromeForm(MyWebpackBindingsStandards.DistIndexHtml);
@@ -47,6 +52,7 @@ namespace autorrent {
                 };
             }
             Application.Run(mainForm);
+            Cef.Shutdown();
         }
     }
 }

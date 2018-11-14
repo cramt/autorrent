@@ -5,6 +5,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace autorrent {
     //in the js, all these functions are promises
@@ -19,6 +20,10 @@ namespace autorrent {
         }
     }
     public class CsJsBindings {
+        private ChromeForm chromeForm;
+        public CsJsBindings(ChromeForm chromeForm) {
+            this.chromeForm = chromeForm;
+        }
         public void log(object o) {
             try {
                 dynamic d = (dynamic)o;
@@ -27,13 +32,29 @@ namespace autorrent {
             }
             catch (Exception) { }
         }
-        //DIS SHIT IMPORTANT
-        //https://stackoverflow.com/questions/1592876/make-a-borderless-form-movable
-        public void func(dynamic o) {
-            Dictionary<string, object> a = Util.Dyn2Dict(o);
-            foreach (var b in a) {
-                Console.WriteLine(b);
-            }
+        public void captureBorder() {
+            chromeForm.CaptureBorder();
+        }
+        public void releaseBorder() {
+            chromeForm.ReleaseBorder();
+        }
+        public void close() {
+            Application.Exit();
+        }
+        public void toggleMaximize() {
+            chromeForm.Invoke(new Action(() => {
+                if (chromeForm.WindowState == FormWindowState.Normal) {
+                    chromeForm.WindowState = FormWindowState.Maximized;
+                }
+                else {
+                    chromeForm.WindowState = FormWindowState.Normal;
+                }
+            }));
+        }
+        public void minimize() {
+            chromeForm.Invoke(new Action(() => {
+                chromeForm.WindowState = FormWindowState.Minimized;
+            }));
         }
     }
 }
