@@ -27,6 +27,8 @@ namespace autorrent {
             }
             catch (Exception) { }
         }
+        //DIS SHIT IMPORTANT
+        //https://stackoverflow.com/questions/1592876/make-a-borderless-form-movable
         public void func(dynamic o) {
             Dictionary<string, object> a = Util.Dyn2Dict(o);
             foreach (var b in a) {
