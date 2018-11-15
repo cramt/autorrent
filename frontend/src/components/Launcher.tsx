@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { CefSharpObject, CsJsBindings, initCsJsBindingObject } from '../CsJsBinding';
+import { AutorrentLogo } from './AutorrentLogo';
 
 interface ThisProps {
     callback: () => void
@@ -17,7 +18,7 @@ export class Launcher extends React.Component<ThisProps, {}> {
 
         return (
             <div>
-                loading
+                <AutorrentLogo idle={false} size={800} />
             </div>
         )
     }
@@ -25,7 +26,7 @@ export class Launcher extends React.Component<ThisProps, {}> {
         (async () => {
             await CefSharp.BindObjectAsync("CsJsObject")
             initCsJsBindingObject(CsJsObject);
-            this.props.callback();
+            //this.props.callback();
         })()
     }
 }
