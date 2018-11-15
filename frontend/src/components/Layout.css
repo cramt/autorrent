@@ -26,6 +26,7 @@ body {
     height: 25px;
     background-color: rgb(30, 30, 30);
     color: white;
+    display: none;
 }
 
 .border * {

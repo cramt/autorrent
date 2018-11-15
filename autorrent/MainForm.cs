@@ -39,10 +39,13 @@ namespace autorrent {
         public ChromiumWebBrowser chromeBrowser;
         public ChromeForm(string path) {
 
+            /*
             this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
             this.ControlBox = false;
             this.Text = String.Empty;
-
+            */
+            Text = "autorrent";
+            Icon = new Icon("autorrent_logo.ico");
 
             chromeBrowser = new ChromiumWebBrowser(path);
             Controls.Add(chromeBrowser);
