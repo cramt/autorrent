@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -37,8 +38,13 @@ namespace autorrent {
         }
         public ChromiumWebBrowser chromeBrowser;
         public ChromeForm(string path) {
-            chromeBrowser = new ChromiumWebBrowser(path);
 
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            this.ControlBox = false;
+            this.Text = String.Empty;
+
+
+            chromeBrowser = new ChromiumWebBrowser(path);
             Controls.Add(chromeBrowser);
             chromeBrowser.Dock = DockStyle.Fill;
             chromeBrowser.Location = new System.Drawing.Point(0, 0);
@@ -50,7 +56,7 @@ namespace autorrent {
                 chromeBrowser.ShowDevTools();
             };
             WindowState = FormWindowState.Maximized;
-            FormBorderStyle = FormBorderStyle.None;
+
             CsJsBindings bindingObject = new CsJsBindings(this);
             chromeBrowser.JavascriptObjectRepository.Register("CsJsObject", bindingObject, true);
         }
@@ -59,5 +65,7 @@ namespace autorrent {
         public void Reload() {
             chromeBrowser.Reload();
         }
+
+        
     }
 }

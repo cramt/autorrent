@@ -18,16 +18,23 @@ export class Layout extends React.Component<LayoutProps, {}> {
                 if (e.target === e.currentTarget) {
                     CsJs.releaseBorder()
                 }
+            }} onDoubleClick={(e) => {
+                if (e.target === e.currentTarget) {
+                    CsJs.toggleMaximize();
+                }
             }} className="border">
+                <span>&nbsp;&nbsp;</span>
                 <span onClick={(e) => {
                     console.log("e")
                     e.stopPropagation();
                     CsJs.close();
                 }}>x</span>
+                <span>&nbsp;&nbsp;&nbsp;</span>
                 <span onClick={(e) => {
                     e.stopPropagation();
                     CsJs.toggleMaximize();
                 }}>□</span>
+                <span>&nbsp;&nbsp;&nbsp;</span>
                 <span onClick={(e) => {
                     e.stopPropagation();
                     CsJs.minimize();
