@@ -8,6 +8,7 @@ export interface CsJsBindings {
     windowClose(): void
     windowToggleMaximize(): void;
     windowMinimize(): void;
+    magnetLinkParse(str: string): string;
 }
 let CsJsObj: CsJsBindings;
 export function initCsJsBindingObject(obj: CsJsBindings) {
@@ -32,7 +33,13 @@ class CsJsClass {
     }
 }
 class torrent {
+    constructor(magnetLink: string | {
+        trackers: string[];
+        hash: string;
+        name: string;
+    }) {
 
+    }
 }
 let CsJs = new CsJsClass();
 export { CsJs }

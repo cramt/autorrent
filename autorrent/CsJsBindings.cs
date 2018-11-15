@@ -1,4 +1,5 @@
-﻿using System;
+﻿using autorrent.Torrent;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
@@ -55,6 +56,10 @@ namespace autorrent {
             chromeForm.Invoke(new Action(() => {
                 chromeForm.WindowState = FormWindowState.Minimized;
             }));
+        }
+        public int TorrentInitFromMagnetLink(string magnetLink) {
+            TorrentSession torrent = new TorrentClient(@"C:\Users\madsc\Downloads").InitFromMagnetLink(MagnetLink.Parse(magnetLink)).GetAwaiter().GetResult();
+            return 0;
         }
     }
 }
