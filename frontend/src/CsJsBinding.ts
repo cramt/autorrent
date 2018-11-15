@@ -3,11 +3,11 @@ export interface CefSharpObject {
 }
 export interface CsJsBindings {
     log(a: any): void;
-    releaseBorder(): void;
-    captureBorder(): void;
-    close(): void;
-    toggleMaximize(): void;
-    minimize(): void;
+    windowReleaseBorder(): void;
+    windowCaptureBorder(): void;
+    windowClose(): void
+    windowToggleMaximize(): void;
+    windowMinimize(): void;
 }
 let CsJsObj: CsJsBindings;
 export function initCsJsBindingObject(obj: CsJsBindings) {
@@ -20,11 +20,19 @@ class CsJsClass {
         let line = new Error().stack.split("at")[2].split("(")[1].split(")")[0];
         CsJsObj.log({ line: line, msg: JSON.stringify(object, null, 2) });
     }
-    releaseBorder() { CsJsObj.releaseBorder() }
-    captureBorder() { CsJsObj.captureBorder() }
-    close() { CsJsObj.close(); }
-    toggleMaximize() { CsJsObj.toggleMaximize(); }
-    minimize() { CsJsObj.minimize(); }
+    window = {
+        releaseBorder: () => CsJsObj.windowReleaseBorder(),
+        captureBorder: () => CsJsObj.windowCaptureBorder(),
+        close: () => CsJsObj.windowClose(),
+        toggleMaximize: () => CsJsObj.windowToggleMaximize(),
+        minimize: () => CsJsObj.windowMinimize(),
+    }
+    torrent = {
+
+    }
+}
+class torrent {
+
 }
 let CsJs = new CsJsClass();
 export { CsJs }

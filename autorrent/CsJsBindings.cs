@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace autorrent {
     //in the js, all these functions are promises
     public static class Util {
-        public static Dictionary<String, Object> Dyn2Dict(dynamic dynObj) {
+        public static Dictionary<string, object> Dyn2Dict(dynamic dynObj) {
             var dictionary = new Dictionary<string, object>();
             foreach (PropertyDescriptor propertyDescriptor in TypeDescriptor.GetProperties(dynObj)) {
                 object obj = propertyDescriptor.GetValue(dynObj);
@@ -24,7 +24,7 @@ namespace autorrent {
         public CsJsBindings(ChromeForm chromeForm) {
             this.chromeForm = chromeForm;
         }
-        public void log(object o) {
+        public void Log(object o) {
             try {
                 dynamic d = (dynamic)o;
                 Console.WriteLine("line: " + d.line);
@@ -32,16 +32,16 @@ namespace autorrent {
             }
             catch (Exception) { }
         }
-        public void captureBorder() {
+        public void WindowCaptureBorder() {
             chromeForm.CaptureBorder();
         }
-        public void releaseBorder() {
+        public void WindowReleaseBorder() {
             chromeForm.ReleaseBorder();
         }
-        public void close() {
+        public void WindowClose() {
             Application.Exit();
         }
-        public void toggleMaximize() {
+        public void WindowToggleMaximize() {
             chromeForm.Invoke(new Action(() => {
                 if (chromeForm.WindowState == FormWindowState.Normal) {
                     chromeForm.WindowState = FormWindowState.Maximized;
@@ -51,7 +51,7 @@ namespace autorrent {
                 }
             }));
         }
-        public void minimize() {
+        public void WindowMinimize() {
             chromeForm.Invoke(new Action(() => {
                 chromeForm.WindowState = FormWindowState.Minimized;
             }));

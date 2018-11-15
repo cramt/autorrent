@@ -47,7 +47,7 @@ namespace autorrent {
             chromeBrowser = new ChromiumWebBrowser(path);
             Controls.Add(chromeBrowser);
             chromeBrowser.Dock = DockStyle.Fill;
-            chromeBrowser.Location = new System.Drawing.Point(0, 0);
+            chromeBrowser.Location = new Point(0, 0);
             chromeBrowser.Margin = new Padding(0, 0, 0, 0);
             FormClosing += (object o, FormClosingEventArgs e) => {
 

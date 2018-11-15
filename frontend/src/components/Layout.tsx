@@ -12,32 +12,32 @@ export class Layout extends React.Component<LayoutProps, {}> {
         return <div className='container-fluid'>
             <div onMouseDown={(e) => {
                 if (e.target === e.currentTarget) {
-                    CsJs.captureBorder()
+                    CsJs.window.captureBorder()
                 }
             }} onMouseUp={(e) => {
                 if (e.target === e.currentTarget) {
-                    CsJs.releaseBorder()
+                    CsJs.window.releaseBorder()
                 }
             }} onDoubleClick={(e) => {
                 if (e.target === e.currentTarget) {
-                    CsJs.toggleMaximize();
+                    CsJs.window.toggleMaximize();
                 }
             }} className="border">
                 <span>&nbsp;&nbsp;</span>
                 <span onClick={(e) => {
                     console.log("e")
                     e.stopPropagation();
-                    CsJs.close();
+                    CsJs.window.close();
                 }}>x</span>
                 <span>&nbsp;&nbsp;&nbsp;</span>
                 <span onClick={(e) => {
                     e.stopPropagation();
-                    CsJs.toggleMaximize();
+                    CsJs.window.toggleMaximize();
                 }}>□</span>
                 <span>&nbsp;&nbsp;&nbsp;</span>
                 <span onClick={(e) => {
                     e.stopPropagation();
-                    CsJs.minimize();
+                    CsJs.window.minimize();
                 }}>_</span>
             </div>
             <div className='row'>
