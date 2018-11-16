@@ -3,8 +3,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace autorrent.Torrent {
-    class TorrentClient {
+namespace au.Torrent {
+    public class TorrentClient {
         public Task<TorrentSession> InitFromMagnetLink(string magnetLink) {
             return InitFromMagnetLink(MagnetLink.Parse(magnetLink));
         }

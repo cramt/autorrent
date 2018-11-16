@@ -1,4 +1,4 @@
-﻿using autorrent.Torrent;
+﻿using au.Torrent;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

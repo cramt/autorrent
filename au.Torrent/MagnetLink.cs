@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
-namespace autorrent.Torrent {
-    class MagnetLink {
+namespace au.Torrent {
+    public class MagnetLink {
         public static MagnetLink Parse(string magnetLink) {
             const string firstPart = "magnet:?xt=urn:btih:";
             if(magnetLink.Substring(0, firstPart.Length) != firstPart) {

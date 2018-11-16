@@ -5,7 +5,7 @@ using Leak.Common;
 using System;
 using System.Threading.Tasks;
 
-namespace autorrent.Torrent {
+namespace au.Torrent {
     public class TorrentSession {
         public Task<Metainfo> Metainfo { get; private set; }
         public Task DataCompletion { get; private set; }

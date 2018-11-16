@@ -1,4 +1,4 @@
-using autorrent.Torrent;
+using au.Torrent;
 using CefSharp;
 using CefSharp.WinForms;
 using System;

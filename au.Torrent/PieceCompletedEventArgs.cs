@@ -1,7 +1,7 @@
 ﻿using Leak.Common;
 using System;
 
-namespace autorrent.Torrent {
+namespace au.Torrent {
     public class PieceCompletedEventArgs : EventArgs {
         public FileHash Hash;
         public PieceInfo Piece;

@@ -91,15 +91,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CsJsBindings.cs" />
-    <Compile Include="Torrent\MagnetLink.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Torrent\PieceCompletedEventArgs.cs" />
-    <Compile Include="Torrent\TorrentClient.cs" />
-    <Compile Include="Torrent\TorrentSession.cs" />
     <Compile Include="WebpackBindings.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +111,16 @@
     <Content Include="autorrent_logo.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\au.Torrent\au.Torrent.csproj">
+      <Project>{cfce5736-8df9-4489-a1ce-058e791dbb7d}</Project>
+      <Name>au.Torrent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlobalHook\GlobalHooks.csproj">
+      <Project>{eea20e44-613e-437c-add2-c1a8df50fd1f}</Project>
+      <Name>GlobalHooks</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
