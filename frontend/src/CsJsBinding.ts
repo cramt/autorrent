@@ -29,7 +29,9 @@ class CsJsClass {
         minimize: () => CsJsObj.windowMinimize(),
     }
     torrent = {
+        initFromMagnetLink: (magnetLink: string) => {
 
+        }
     }
 }
 class torrent {
