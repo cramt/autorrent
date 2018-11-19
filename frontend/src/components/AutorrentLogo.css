@@ -1,14 +1,16 @@
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
+    position: absolute;
     height: 80px;
-    margin-right: -40px;
     z-index: -1;
 }
 
 .App-logo-reverse {
     animation: App-logo-spin-reverse infinite 6s linear;
+    position: absolute;
     height: 80px;
-    margin-left: -40px;
+    left: 400px;
+    animation-timing-function: linear;
 }
 
 .App-logo-reverse-no-animation {
@@ -20,7 +22,10 @@
 
 .logo-container {
     position: relative;
+    margin: auto;
+    width: 50%;
 }
+
 
 @keyframes App-logo-spin {
     from {
@@ -41,11 +46,35 @@
         transform: rotate(-47deg)
     }
 
-    70%{
-       transform: rotate(-47deg) 
+    63% {
+        transform: rotate(-47deg)
     }
 
-    85%{
+    66% {
+        transform: rotate(-50deg)
+    }
+
+    69% {
+        transform: rotate(-50deg)
+    }
+
+    72% {
+        transform: rotate(-53deg)
+    }
+
+    75% {
+        transform: rotate(-53deg)
+    }
+
+    78% {
+        transform: rotate(-56deg)
+    }
+
+    81% {
+        transform: rotate(-56deg)
+    }
+
+    83% {
         transform: rotate(0deg)
     }
 }

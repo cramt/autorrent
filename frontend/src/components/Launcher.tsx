@@ -26,10 +26,7 @@ export class Launcher extends React.Component<ThisProps, {}> {
         (async () => {
             await CefSharp.BindObjectAsync("CsJsObject")
             initCsJsBindingObject(CsJsObject);
-            //this.props.callback();
+            this.props.callback();
         })()
     }
-}
-class test {
-
 }
