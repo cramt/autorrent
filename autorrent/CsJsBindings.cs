@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -57,9 +58,16 @@ namespace autorrent {
                 chromeForm.WindowState = FormWindowState.Minimized;
             }));
         }
-        public int TorrentInitFromMagnetLink(string magnetLink) {
-            TorrentSession torrent = new TorrentClient(@"C:\Users\madsc\Downloads").InitFromMagnetLink(MagnetLink.Parse(magnetLink)).GetAwaiter().GetResult();
-            return 0;
+        private List<TorrentSession> TorrentSessions = new List<TorrentSession>();
+        public string TorrentInitFromMagnetLink(string magnetLink) {
+            /*
+            TorrentSession session = Program.TorrentClient.InitFromMagnetLink(magnetLink).GetAwaiter().GetResult();
+            return session.ToIntPtr();
+            */
+            string a = new StringBuilder().ToIntPtr() + "";
+            Console.WriteLine(a);
+            return a;
         }
+
     }
 }

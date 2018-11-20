@@ -1,6 +1,9 @@
 export interface CefSharpObject {
     BindObjectAsync(s: string): Promise<{}>;
 }
+export interface Pointer {
+    value: string;
+}
 export interface CsJsBindings {
     log(a: any): void;
     windowReleaseBorder(): void;
@@ -9,6 +12,7 @@ export interface CsJsBindings {
     windowToggleMaximize(): void;
     windowMinimize(): void;
     magnetLinkParse(str: string): string;
+    torrentInitFromMagnetLink(str: string): Promise<string>;
 }
 let CsJsObj: CsJsBindings;
 export function initCsJsBindingObject(obj: CsJsBindings) {
@@ -29,8 +33,11 @@ class CsJsClass {
         minimize: () => CsJsObj.windowMinimize(),
     }
     torrent = {
-        initFromMagnetLink: (magnetLink: string) => {
-
+        initFromMagnetLink: async (magnetLink: string): Promise<Pointer> => {
+            const x = await CsJsObj.torrentInitFromMagnetLink(magnetLink);
+            return {
+                value: x
+            };
         }
     }
 }

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { CefSharpObject, CsJsBindings, initCsJsBindingObject } from '../CsJsBinding';
+import { CefSharpObject, CsJsBindings, initCsJsBindingObject, CsJs } from '../CsJsBinding';
 import { AutorrentLogo } from './AutorrentLogo';
 
 interface ThisProps {
@@ -26,7 +26,8 @@ export class Launcher extends React.Component<ThisProps, {}> {
         (async () => {
             await CefSharp.BindObjectAsync("CsJsObject")
             initCsJsBindingObject(CsJsObject);
-            this.props.callback();
+            //this.props.callback();
+            CsJs.torrent.initFromMagnetLink("").then(console.log);
         })()
     }
 }
