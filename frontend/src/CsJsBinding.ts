@@ -13,6 +13,7 @@ export interface CsJsBindings {
     windowMinimize(): void;
     magnetLinkParse(str: string): string;
     torrentInitFromMagnetLink(str: string): Promise<string>;
+    torrentGetProgress(ptr: string): Promise<string>;
 }
 let CsJsObj: CsJsBindings;
 export function initCsJsBindingObject(obj: CsJsBindings) {
@@ -38,6 +39,9 @@ class CsJsClass {
             return {
                 value: x
             };
+        },
+        getProgress: (ptr: Pointer): Promise<string> => {
+            return CsJsObj.torrentGetProgress(ptr.value)
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using au.Torrent;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,16 +59,26 @@ namespace autorrent {
                 chromeForm.WindowState = FormWindowState.Minimized;
             }));
         }
-        private List<TorrentSession> TorrentSessions = new List<TorrentSession>();
+        private List<GCHandle> TorrentSessions = new List<GCHandle>();
         public string TorrentInitFromMagnetLink(string magnetLink) {
+            StringBuilder s = new StringBuilder();
+            s.Append("hello there");
+            GCHandle handle = GCHandle.Alloc(s);
+            TorrentSessions.Add(handle);
+            return handle.ToIntPtr() + "";
             /*
             TorrentSession session = Program.TorrentClient.InitFromMagnetLink(magnetLink).GetAwaiter().GetResult();
-            return session.ToIntPtr();
+            GCHandle handle = GCHandle.Alloc(session);
+            TorrentSessions.Add(handle);
+            return handle.ToIntPtr() + "";
             */
-            string a = new StringBuilder().ToIntPtr() + "";
-            Console.WriteLine(a);
-            return a;
         }
-
+        public string TorrentGetProgress(string sptr) {
+            return (TorrentSessions.Single(x => x.ToIntPtr() + "" == sptr).Target as StringBuilder).ToString();
+            /*
+            TorrentSession ses = TorrentSessions.Single(x => x.ToIntPtr() + "" == sptr).Target as TorrentSession;
+            return JsonConvert.SerializeObject(ses.Metainfo);
+            */
+        }
     }
 }
