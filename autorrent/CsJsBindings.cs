@@ -45,14 +45,7 @@ namespace autorrent {
             Application.Exit();
         }
         public void WindowToggleMaximize() {
-            chromeForm.Invoke(new Action(() => {
-                if (chromeForm.WindowState == FormWindowState.Normal) {
-                    chromeForm.WindowState = FormWindowState.Maximized;
-                }
-                else {
-                    chromeForm.WindowState = FormWindowState.Normal;
-                }
-            }));
+            chromeForm.Invoke(new Action(() => { chromeForm.WindowState = chromeForm.WindowState == FormWindowState.Normal ? FormWindowState.Maximized : FormWindowState.Normal; }));
         }
         public void WindowMinimize() {
             chromeForm.Invoke(new Action(() => {
@@ -61,24 +54,20 @@ namespace autorrent {
         }
         private List<GCHandle> TorrentSessions = new List<GCHandle>();
         public string TorrentInitFromMagnetLink(string magnetLink) {
-            StringBuilder s = new StringBuilder();
-            s.Append("hello there");
-            GCHandle handle = GCHandle.Alloc(s);
-            TorrentSessions.Add(handle);
-            return handle.ToIntPtr() + "";
-            /*
             TorrentSession session = Program.TorrentClient.InitFromMagnetLink(magnetLink).GetAwaiter().GetResult();
             GCHandle handle = GCHandle.Alloc(session);
             TorrentSessions.Add(handle);
             return handle.ToIntPtr() + "";
-            */
         }
         public string TorrentGetProgress(string sptr) {
-            return (TorrentSessions.Single(x => x.ToIntPtr() + "" == sptr).Target as StringBuilder).ToString();
-            /*
-            TorrentSession ses = TorrentSessions.Single(x => x.ToIntPtr() + "" == sptr).Target as TorrentSession;
-            return JsonConvert.SerializeObject(ses.Metainfo);
-            */
+            object target = TorrentSessions.Single(x => x.ToIntPtr() + "" == sptr).Target;
+            if (!(target is TorrentSession ses)) return "";
+            ses.Metainfo.ContinueWith(x => {
+                Console.WriteLine(x.Result);
+            });
+            Console.WriteLine(target.GetType());
+            return JsonConvert.SerializeObject(ses.Metainfo.GetAwaiter().GetResult());
+
         }
     }
 }

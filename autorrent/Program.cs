@@ -32,12 +32,15 @@ namespace autorrent {
         }
 
         const bool doTheWebpack = false;
-        static void Main(string[] args) {
+
+        public static void Main(string[] args) {
+            //Test();
+            //Thread.Sleep(-1);
             CefSettings settings = new CefSettings();
             Cef.EnableHighDPISupport();
             Cef.Initialize(settings);
-            //Test();
-            //Thread.Sleep(-1);
+            
+            TorrentClient = new TorrentClient("D:\\downloads");
             ChromeForm mainForm = new ChromeForm(MyWebpackBindingsStandards.DistIndexHtml);
             if (doTheWebpack) {
                 WebpackBindings bindings = new WebpackBindings(MyWebpackBindingsStandards.FrontendPath, MyWebpackBindingsStandards.WebpackStartCommand);
