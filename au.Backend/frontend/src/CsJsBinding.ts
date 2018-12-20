@@ -1,6 +1,3 @@
-export interface CefSharpObject {
-    BindObjectAsync(s: string): Promise<{}>;
-}
 export interface Pointer {
     value: string;
 }
@@ -15,33 +12,33 @@ export interface CsJsBindings {
     torrentInitFromMagnetLink(str: string): Promise<string>;
     torrentGetProgress(ptr: string): Promise<string>;
 }
-let CsJsObj: CsJsBindings;
+let CsJsRawObj: CsJsBindings;
 export function initCsJsBindingObject(obj: CsJsBindings) {
     console.log("CsJsBindings object initialized")
-    CsJsObj = obj
-    CsJsObj.log("CsJsBindings object initialized")
+    CsJsRawObj = obj
+    CsJsRawObj.log("CsJsBindings object initialized")
 }
 class CsJsClass {
     log(object: any) {
-        let line = new Error().stack.split("at")[2].split("(")[1].split(")")[0];
-        CsJsObj.log({ line: line, msg: JSON.stringify(object, null, 2) });
+        let line = new Error().stack.split(" at ")[8].split("(")[0]
+        CsJsRawObj.log(JSON.stringify({ line: line, msg: JSON.stringify(object, null, 2) }));
     }
     window = {
-        releaseBorder: () => CsJsObj.windowReleaseBorder(),
-        captureBorder: () => CsJsObj.windowCaptureBorder(),
-        close: () => CsJsObj.windowClose(),
-        toggleMaximize: () => CsJsObj.windowToggleMaximize(),
-        minimize: () => CsJsObj.windowMinimize(),
+        releaseBorder: () => CsJsRawObj.windowReleaseBorder(),
+        captureBorder: () => CsJsRawObj.windowCaptureBorder(),
+        close: () => CsJsRawObj.windowClose(),
+        toggleMaximize: () => CsJsRawObj.windowToggleMaximize(),
+        minimize: () => CsJsRawObj.windowMinimize(),
     }
     torrent = {
         initFromMagnetLink: async (magnetLink: string): Promise<Pointer> => {
-            const x = await CsJsObj.torrentInitFromMagnetLink(magnetLink);
+            const x = await CsJsRawObj.torrentInitFromMagnetLink(magnetLink);
             return {
                 value: x
             };
         },
         getProgress: (ptr: Pointer): Promise<string> => {
-            return CsJsObj.torrentGetProgress(ptr.value)
+            return CsJsRawObj.torrentGetProgress(ptr.value)
         }
     }
 }

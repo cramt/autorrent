@@ -1,7 +1,7 @@
 import * as React from 'react';
 import "./AutorrentLogo.css"
-const autorrentLogoBack = require("../../../autorrent_logo_back.svg")
-const autorrentLogoFront = require("../../../autorrent_logo_front.svg")
+const autorrentLogoBack = require("../../../../autorrent_logo_back.svg")
+const autorrentLogoFront = require("../../../../autorrent_logo_front.svg")
 
 export class AutorrentLogo extends React.Component<{ idle: boolean, size: number }, {}> {
     public render() {
